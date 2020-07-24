@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraAnchor : MonoBehaviour
 {
-    public Camera camera;
+    public Camera mainCamera;
 
     public float distanceFromPlayer;
 
@@ -12,13 +12,13 @@ public class CameraAnchor : MonoBehaviour
     void Start()
     {
         float aspectRatio = Mathf.Round(Screen.height) / Mathf.Round(Screen.width);
-        distanceFromPlayer = (camera.orthographicSize / (aspectRatio * 2));
+        distanceFromPlayer = (mainCamera.orthographicSize / (aspectRatio * 2));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         transform.position = new Vector2(PlayerController.instance.transform.position.x + distanceFromPlayer, transform.position.y);
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 }

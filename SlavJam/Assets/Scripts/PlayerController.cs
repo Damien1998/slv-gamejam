@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float fastSpeed, slowSpeed;
+    public float fastSpeed, slowSpeed, normalSpeed;
     private Rigidbody rigidBody;
 
     private float moveSpeed;
@@ -23,19 +23,28 @@ public class PlayerController : MonoBehaviour
             instance = this;
         }
         rigidBody = GetComponent<Rigidbody>();
-        moveSpeed = fastSpeed;
+        moveSpeed = normalSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("SlowDown"))
+        if(Input.GetButton("SlowDown") && !Input.GetButton("SpeedUp"))
         {
             moveSpeed = Mathf.Lerp(moveSpeed, slowSpeed, 0.4f);
         }
-        else
+        else if(!Input.GetButton("SpeedUp"))
         {
-            moveSpeed = Mathf.Lerp(moveSpeed, fastSpeed, 0.6f);
+            moveSpeed = Mathf.Lerp(moveSpeed, normalSpeed, 0.6f);
+        }
+
+        if (Input.GetButton("SpeedUp") && !Input.GetButton("SlowDown"))
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, fastSpeed, 0.4f);
+        }
+        else if (!Input.GetButton("SlowDown"))
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, normalSpeed, 0.6f);
         }
 
         rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
