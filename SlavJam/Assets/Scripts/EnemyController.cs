@@ -35,6 +35,6 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
-        mainCamera.transform.position = new Vector3(transform.position.x - distance, transform.position.y, -10);
+        mainCamera.transform.position = new Vector3(transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
     }
 }
