@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 11310
+  controlID: 22159
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 11281
+  controlID: 22160
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 11282
+  controlID: 22161
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6efbffff66340000
+      m_ExpandedIDs: 1c80ffff2080ffff14b1ffff7cfaffff6efbffffa2340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -310,9 +310,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 24.924824, y: 0.07123632, z: 0.48688033}
+    m_Target: {x: -33.13625, y: -0.99772584, z: 23.652706}
     speed: 2
-    m_Value: {x: 24.924824, y: 0.07123632, z: 0.48688033}
+    m_Value: {x: -33.13625, y: -0.99772584, z: 23.652706}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -358,13 +358,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.061767407, y: 0.009578352, z: -0.00059278205, w: -0.99804634}
+    m_Target: {x: -0.055736806, y: -0.039831173, z: 0.0022216334, w: -0.9976585}
     speed: 2
-    m_Value: {x: -0.061767288, y: 0.009578333, z: -0.00059278094, w: -0.99804443}
+    m_Value: {x: -0.055736236, y: -0.039830763, z: 0.0022216106, w: -0.99764824}
   m_Size:
-    m_Target: 14.048079
+    m_Target: 60.640026
     speed: 2
-    m_Value: 14.048079
+    m_Value: 60.640026
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -572,20 +572,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mimix\OneDrive\Dokumenty\GitHub\slv-gamejam\SlavJam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 82360000
-    m_LastClickedID: 13954
-    m_ExpandedIDs: 000000008236000000ca9a3b
+    m_SelectedIDs: c8360000
+    m_LastClickedID: 14024
+    m_ExpandedIDs: 000000009836000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -613,7 +613,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 40efffff
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008236000000ca9a3b
+    m_ExpandedIDs: 000000009836000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -24814
+  m_LastSelectedObjectID: 13496
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -717,8 +717,8 @@ MonoBehaviour:
     y: 0
     width: 555
     height: 1046
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
