@@ -1617,7 +1617,7 @@ MonoBehaviour:
   alertMeterDisplay: {fileID: 36328225}
   farMeterDisplay: {fileID: 2085817898}
   gameOver: {fileID: 1189149080}
-  dangerMeterMax: 5
+  dangerMeterMax: 7
   dangerMeter: 0
   alertMeterMax: 2
   alertMeter: 0
@@ -1626,6 +1626,7 @@ MonoBehaviour:
   previousObstacle: {fileID: 0}
   tracks:
   - {fileID: 1631396554681536821, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
+  - {fileID: 3577488797594051638, guid: aba5ab2c47f77784f9be4becb289c3eb, type: 3}
   currentTrackID: 0
 --- !u!4 &1525326530
 Transform:
@@ -2348,21 +2349,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.29957277
-      objectReference: {fileID: 0}
-    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5944104
-      objectReference: {fileID: 0}
-    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.6415094
-      objectReference: {fileID: 0}
     - target: {fileID: 1631396554681536820, guid: 6b81ca9c56daecf469d7d4b4a242a312,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2423,13 +2409,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track
       objectReference: {fileID: 0}
-    - target: {fileID: 3994850579740524424, guid: 6b81ca9c56daecf469d7d4b4a242a312,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 60.71
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7407889779534349709, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
 --- !u!1001 &3716807823923382344
 PrefabInstance:
