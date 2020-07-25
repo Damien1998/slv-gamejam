@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
         moveSpeed = fastSpeed;
 
         float aspectRatio = Mathf.Round(Screen.height) / Mathf.Round(Screen.width);
-        distance = (mainCamera.orthographicSize / (aspectRatio * 4));
+        distance = (mainCamera.orthographicSize / (aspectRatio * 2f));
     }
 
     // Update is called once per frame

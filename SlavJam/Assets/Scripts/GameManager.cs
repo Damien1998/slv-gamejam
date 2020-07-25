@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     public int score;
     public float tempScore;
     public Text scoreDisplay;
+    public Slider meterDisplay;
+    public GameObject gameOver;
+
+    public float dangerMeterMax, dangerMeter;
+    public float alertMeterMax, alertMeter;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +34,38 @@ public class GameManager : MonoBehaviour
     {
         score = Mathf.FloorToInt(tempScore);
         scoreDisplay.text = "Score: " + score;
+
+        if(dangerMeter > 0)
+        {
+            if(!meterDisplay.IsActive())
+            {
+                meterDisplay.gameObject.SetActive(true);
+            }
+            float value = dangerMeter / dangerMeterMax;
+            meterDisplay.value = value;
+        }
+        if (alertMeter > 0)
+        {
+            if (!meterDisplay.IsActive())
+            {
+                meterDisplay.gameObject.SetActive(true);
+            }
+            float value = alertMeter / alertMeterMax;
+            meterDisplay.value = value;
+        }
+
+        if(alertMeter == 0 && dangerMeter == 0)
+        {
+            if (meterDisplay.IsActive())
+            {
+                meterDisplay.gameObject.SetActive(false);
+            }
+        }
+
+        if(alertMeter >= alertMeterMax || dangerMeter >= dangerMeterMax)
+        {
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
