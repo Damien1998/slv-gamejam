@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ListenZone : MonoBehaviour
 {
-    public float scorePerFrame;
+    public float scorePerSecond;
+    private bool playerInRange;
 
     // Start is called before the first frame update
     void Start()
@@ -15,15 +16,37 @@ public class ListenZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerInRange)
+        {
+            GameManager.instance.tempScore += scorePerSecond * Time.deltaTime;
+            if (GameManager.instance.dangerMeter > 0)
+            {
+                GameManager.instance.dangerMeter -= 3 * Time.deltaTime;
+            }
+            else
+            {
+                GameManager.instance.dangerMeter = 0;
+            }
+        }
+        else
+        {
+            GameManager.instance.dangerMeter += Time.deltaTime;
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("uidsgsdhfs");
-            GameManager.instance.tempScore += scorePerFrame;
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 }
