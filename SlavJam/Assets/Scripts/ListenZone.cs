@@ -5,6 +5,7 @@ using UnityEngine;
 public class ListenZone : MonoBehaviour
 {
     public float scorePerSecond;
+    public float scoreDecay;
     private bool playerInRange;
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class ListenZone : MonoBehaviour
             GameManager.instance.tempScore += scorePerSecond * Time.deltaTime;
             if (GameManager.instance.dangerMeter > 0)
             {
-                GameManager.instance.dangerMeter -= 3 * Time.deltaTime;
+                GameManager.instance.dangerMeter -= 5 * Time.deltaTime;
             }
             else
             {
@@ -30,6 +31,10 @@ public class ListenZone : MonoBehaviour
         }
         else
         {
+            if(GameManager.instance.tempScore > 0)
+            {
+                GameManager.instance.tempScore -= scoreDecay * Time.deltaTime;
+            }
             GameManager.instance.dangerMeter += Time.deltaTime;
         }
     }
