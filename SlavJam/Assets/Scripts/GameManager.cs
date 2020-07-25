@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public ObstacleSkateboard previousObstacle;
 
+    public GameObject[] tracks;
+    public int currentTrackID;
+
     // Start is called before the first frame update
     void Start()
     {
