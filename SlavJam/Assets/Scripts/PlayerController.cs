@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float fastSpeed, slowSpeed, normalSpeed;
+    public float trackSwitchTime;
     private Rigidbody rigidBody;
     private SpriteRenderer spriteRenderer;
 
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float runAlertRate;
     public bool isRunning;
 
-    public bool isStopped;
+    public bool isStopped, isHiding;
 
     public static PlayerController instance;
 
@@ -62,19 +63,25 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown("w") && transform.position.z < 1)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 1);
-                spriteRenderer.sortingOrder--;
+                StartCoroutine(SwitchTrack(1));
             }
 
             if (Input.GetKeyDown("s") && transform.position.z > -1)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z - 1);
-                spriteRenderer.sortingOrder++;
+                StartCoroutine(SwitchTrack(-1));
             }
         }
         else
         {
             rigidBody.velocity = Vector3.zero;
         }
+    }
+
+    IEnumerator SwitchTrack(int direction)
+    {       
+        yield return new WaitForSecondsRealtime(trackSwitchTime);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y + direction, transform.position.z + direction);
+        spriteRenderer.sortingOrder -= direction;
     }
 }

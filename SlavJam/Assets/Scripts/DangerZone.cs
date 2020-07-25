@@ -17,7 +17,7 @@ public class DangerZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerInRange)
+        if(playerInRange && !PlayerController.instance.isHiding)
         {
             GameManager.instance.tempScore += scorePerSecond * Time.deltaTime;
             GameManager.instance.alertMeter += Time.deltaTime;
