@@ -45,6 +45,6 @@ public class EnemyController : MonoBehaviour
             rigidBody.velocity = Vector3.zero;
         }
         
-        mainCamera.transform.position = new Vector3(transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+        //mainCamera.transform.position = new Vector3(transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
     }
 }

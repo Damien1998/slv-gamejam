@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrackGenerator : MonoBehaviour
 {
     public Transform placeToGenerate;
-    public GameObject trackPrefab, currentTrack;
+    public GameObject currentTrack;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,10 @@ public class TrackGenerator : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameObject newTrack = Instantiate(trackPrefab, placeToGenerate.position, placeToGenerate.rotation);
+            int trackID = Random.Range(0, GameManager.instance.tracks.Length);
+            GameManager.instance.currentTrackID = trackID;
+
+            GameObject newTrack = Instantiate(GameManager.instance.tracks[trackID], placeToGenerate.position, placeToGenerate.rotation);
             newTrack.GetComponentInChildren<TrackRemover>().previousTrack = currentTrack;
         }
     }

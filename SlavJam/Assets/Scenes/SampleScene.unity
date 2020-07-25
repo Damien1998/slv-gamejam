@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 25338950}
   - component: {fileID: 25338952}
   - component: {fileID: 25338951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &182230845
 Transform:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182230844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: -10}
+  m_LocalPosition: {x: 0, y: 0.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 1124107566}
   - component: {fileID: 1124107565}
   - component: {fileID: 1124107564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GuyToFollow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1623,6 +1623,9 @@ MonoBehaviour:
   speedModifier: 1
   speedUpRate: 0.005
   previousObstacle: {fileID: 0}
+  tracks:
+  - {fileID: 1631396554681536821, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
+  currentTrackID: 0
 --- !u!4 &1525326530
 Transform:
   m_ObjectHideFlags: 0
@@ -2344,6 +2347,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29957277
+      objectReference: {fileID: 0}
+    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5944104
+      objectReference: {fileID: 0}
+    - target: {fileID: 256596550633720459, guid: 6b81ca9c56daecf469d7d4b4a242a312,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6415094
+      objectReference: {fileID: 0}
     - target: {fileID: 1631396554681536820, guid: 6b81ca9c56daecf469d7d4b4a242a312,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2409,7 +2427,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 60.71
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7407889779534349709, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b81ca9c56daecf469d7d4b4a242a312, type: 3}
 --- !u!1001 &3716807823923382344
 PrefabInstance:
