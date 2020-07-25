@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     private float moveSpeed, distance;
 
+    public bool isStopped;
+
     public static EnemyController instance;
 
     public Camera mainCamera;
@@ -34,7 +36,15 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
+        if(!isStopped)
+        {
+            rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
+        }
+        else
+        {
+            rigidBody.velocity = Vector3.zero;
+        }
+        
         mainCamera.transform.position = new Vector3(transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
     }
 }

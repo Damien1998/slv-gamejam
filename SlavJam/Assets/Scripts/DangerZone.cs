@@ -26,7 +26,10 @@ public class DangerZone : MonoBehaviour
         {
             if (GameManager.instance.alertMeter > 0)
             {
-                GameManager.instance.alertMeter -= 3 * Time.deltaTime;
+                if(!PlayerController.instance.isRunning)
+                {
+                    GameManager.instance.alertMeter -= 3 * Time.deltaTime;
+                }                
             }
             else
             {
