@@ -19,7 +19,7 @@ public class DangerZone : MonoBehaviour
     {
         if(playerInRange && !PlayerController.instance.isHiding)
         {
-            GameManager.instance.tempScore += scorePerSecond * Time.deltaTime;
+            GameManager.instance.tempScore += scorePerSecond * Time.deltaTime * GameManager.instance.speedModifier;
             GameManager.instance.alertMeter += Time.deltaTime;
         }
         else

@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidBody;
     private SpriteRenderer spriteRenderer;
 
-    private float moveSpeed;
+    public float moveSpeed;
     public float runAlertRate;
     public bool isRunning;
+    public bool isOnSkateboard, hasBag;
 
     public bool isStopped, isHiding;
 
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isStopped)
+        if(!isStopped && !isOnSkateboard)
         {
             if (Input.GetButton("SlowDown") && !Input.GetButton("SpeedUp"))
             {
@@ -59,7 +60,21 @@ public class PlayerController : MonoBehaviour
                 isRunning = false;
             }
 
-            rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
+            rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
+
+            if (Input.GetKeyDown("w") && transform.position.z < 1)
+            {
+                StartCoroutine(SwitchTrack(1));
+            }
+
+            if (Input.GetKeyDown("s") && transform.position.z > -1)
+            {
+                StartCoroutine(SwitchTrack(-1));
+            }
+        }
+        else if(isOnSkateboard)
+        {
+            rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
 
             if (Input.GetKeyDown("w") && transform.position.z < 1)
             {
@@ -73,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rigidBody.velocity = Vector3.zero;
+            rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
         }
     }
 

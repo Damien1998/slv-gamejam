@@ -19,7 +19,7 @@ public class ListenZone : MonoBehaviour
     {
         if(playerInRange)
         {
-            GameManager.instance.tempScore += scorePerSecond * Time.deltaTime;
+            GameManager.instance.tempScore += scorePerSecond * Time.deltaTime * GameManager.instance.speedModifier;
             if (GameManager.instance.dangerMeter > 0)
             {
                 GameManager.instance.dangerMeter -= 5 * Time.deltaTime;
@@ -33,7 +33,7 @@ public class ListenZone : MonoBehaviour
         {
             if(GameManager.instance.tempScore > 0)
             {
-                GameManager.instance.tempScore -= scoreDecay * Time.deltaTime;
+                GameManager.instance.tempScore -= scoreDecay * Time.deltaTime * GameManager.instance.speedModifier;
             }
             GameManager.instance.dangerMeter += Time.deltaTime;
         }
