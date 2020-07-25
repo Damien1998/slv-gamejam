@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController instance;
 
+    public bool canMoveForward;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed = Mathf.Lerp(moveSpeed, normalSpeed, 0.6f);
             }
 
-            if (Input.GetButton("SpeedUp") && !Input.GetButton("SlowDown"))
+            if (Input.GetButton("SpeedUp") && !Input.GetButton("SlowDown") && canMoveForward)
             {
                 moveSpeed = Mathf.Lerp(moveSpeed, fastSpeed, 0.4f);
                 GameManager.instance.alertMeter += runAlertRate * Time.deltaTime;
