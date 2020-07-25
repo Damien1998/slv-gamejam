@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public float tempScore;
     public Text scoreDisplay;
-    public Slider meterDisplay;
+    public Slider alertMeterDisplay;
+    public Slider farMeterDisplay;
     public GameObject gameOver;
 
     public float dangerMeterMax, dangerMeter;
@@ -41,32 +42,39 @@ public class GameManager : MonoBehaviour
 
         if(dangerMeter > 0)
         {
-            if(!meterDisplay.IsActive())
+            if(!farMeterDisplay.IsActive())
             {
-                meterDisplay.gameObject.SetActive(true);
+                farMeterDisplay.gameObject.SetActive(true);
             }
             float value = dangerMeter / dangerMeterMax;
-            meterDisplay.value = value;
+            farMeterDisplay.value = value;
         }
         if (alertMeter > 0)
         {
-            if (!meterDisplay.IsActive())
+            if (!alertMeterDisplay.IsActive())
             {
-                meterDisplay.gameObject.SetActive(true);
+                alertMeterDisplay.gameObject.SetActive(true);
             }
             float value = alertMeter / alertMeterMax;
-            meterDisplay.value = value;
+            alertMeterDisplay.value = value;
         }
 
-        if(alertMeter == 0 && dangerMeter == 0)
+        if(alertMeter == 0)
         {
-            if (meterDisplay.IsActive())
+            if (alertMeterDisplay.IsActive())
             {
-                meterDisplay.gameObject.SetActive(false);
+                alertMeterDisplay.gameObject.SetActive(false);
+            }
+        }
+        if (dangerMeter == 0)
+        {
+            if (farMeterDisplay.IsActive())
+            {
+                farMeterDisplay.gameObject.SetActive(false);
             }
         }
 
-        if(alertMeter >= alertMeterMax)
+        if (alertMeter >= alertMeterMax)
         {
             if(PlayerController.instance.hasBag)
             {
