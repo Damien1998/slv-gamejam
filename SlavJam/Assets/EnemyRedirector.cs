@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyRedirector : MonoBehaviour
 {
     public int direction;
+    public float trackSwitchTime;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,15 @@ public class EnemyRedirector : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            other.transform.position = new Vector3(other.transform.position.x, other.transform.position.y + direction, other.transform.position.z + direction);
-            other.GetComponent<SpriteRenderer>().sortingOrder -= direction;
+            StartCoroutine(SwitchTrack(other.transform, direction));
         }
+    }
+
+    IEnumerator SwitchTrack(Transform enemy, int switchDirection)
+    {
+        yield return new WaitForSecondsRealtime(trackSwitchTime);
+
+        enemy.position = new Vector3(enemy.position.x, enemy.position.y + switchDirection, enemy.position.z + switchDirection);
+        enemy.GetComponent<SpriteRenderer>().sortingOrder -= switchDirection;
     }
 }

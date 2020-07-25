@@ -29,7 +29,9 @@ public class ObstacleBush : MonoBehaviour
     IEnumerator StopPlayer()
     {
         PlayerController.instance.isStopped = true;
+        PlayerController.instance.isHiding = true;
         yield return new WaitForSecondsRealtime(duration);
         PlayerController.instance.isStopped = false;
+        PlayerController.instance.isHiding = false;
     }
 }
