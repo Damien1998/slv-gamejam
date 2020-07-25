@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstaclePaperStand : MonoBehaviour
 {
     public float duration;
+    public float enemySpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,8 @@ public class ObstaclePaperStand : MonoBehaviour
 
     IEnumerator StopEnemy()
     {
-        EnemyController.instance.isStopped = true;
+        EnemyController.instance.moveSpeed = enemySpeed;
         yield return new WaitForSecondsRealtime(duration);
-        EnemyController.instance.isStopped = false;
+        EnemyController.instance.moveSpeed = EnemyController.instance.normalSpeed;
     }
 }

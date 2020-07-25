@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float fastSpeed, slowSpeed;
+    public float fastSpeed, slowSpeed, moveSpeed, normalSpeed;
     private Rigidbody rigidBody;
 
-    private float moveSpeed, distance;
+    private float distance;
 
     public bool isStopped;
 
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
             instance = this;
         }
         rigidBody = GetComponent<Rigidbody>();
-        moveSpeed = fastSpeed;
+        moveSpeed = normalSpeed;
 
         float aspectRatio = Mathf.Round(Screen.height) / Mathf.Round(Screen.width);
         distance = (mainCamera.orthographicSize / (aspectRatio * 2f));
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
     {
         if(!isStopped)
         {
-            rigidBody.velocity = new Vector3(moveSpeed, 0, 0);
+            rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
         }
         else
         {

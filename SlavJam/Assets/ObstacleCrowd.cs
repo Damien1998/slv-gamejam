@@ -15,14 +15,16 @@ public class ObstacleCrowd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerInRange && Input.GetButton("Interact"))
+        if(playerInRange && Input.GetButton("Interact") && !PlayerController.instance.isOnSkateboard)
         {
             PlayerController.instance.isStopped = true;
+            PlayerController.instance.moveSpeed = 0f;
             PlayerController.instance.isHiding = true;
         }
         else if(playerInRange)
         {
             PlayerController.instance.isStopped = false;
+            PlayerController.instance.moveSpeed = PlayerController.instance.normalSpeed;
             PlayerController.instance.isHiding = false;
         }
     }

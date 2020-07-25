@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public float dangerMeterMax, dangerMeter;
     public float alertMeterMax, alertMeter;
 
+    public float speedModifier = 1, speedUpRate;
+
+    public ObstacleSkateboard previousObstacle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,10 +66,26 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(alertMeter >= alertMeterMax || dangerMeter >= dangerMeterMax)
+        if(alertMeter >= alertMeterMax)
+        {
+            if(PlayerController.instance.hasBag)
+            {
+                PlayerController.instance.hasBag = false;
+                alertMeter = 0.01f;
+            }
+            else
+            {
+                gameOver.SetActive(true);
+                Time.timeScale = 0;
+            }         
+        }
+
+        if(dangerMeter >= dangerMeterMax)
         {
             gameOver.SetActive(true);
             Time.timeScale = 0;
         }
+
+        speedModifier += Time.deltaTime * speedUpRate;
     }
 }
