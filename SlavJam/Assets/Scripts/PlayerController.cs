@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float trackSwitchTime;
     private Rigidbody rigidBody;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     public float moveSpeed;
     public float runAlertRate;
@@ -33,13 +34,14 @@ public class PlayerController : MonoBehaviour
         }
         rigidBody = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         moveSpeed = normalSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isStopped && !isOnSkateboard)
+        if (!isStopped && !isOnSkateboard)
         {
             if (Input.GetButton("SlowDown") && !Input.GetButton("SpeedUp"))
             {
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(SwitchTrack(-1));
             }
         }
-        else if(isOnSkateboard)
+        else if (isOnSkateboard)
         {
             rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
 
@@ -92,6 +94,24 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(moveSpeed * GameManager.instance.speedModifier, 0, 0);
         }
+
+        if (!isOnSkateboard && isHiding)
+        {
+            animator.SetBool("isHiding", true);
+        }
+        else
+        {
+            animator.SetBool("isHiding", false);
+        }
+
+        if(hasBag)
+        {
+            animator.SetBool("hasBag", true);
+        }
+        else
+        {
+            animator.SetBool("hasBag", false);
+        }
     }
 
     IEnumerator SwitchTrack(int direction)
@@ -99,6 +119,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(trackSwitchTime);
 
         transform.position = new Vector3(transform.position.x, transform.position.y + direction, transform.position.z + direction);
-        spriteRenderer.sortingOrder -= direction;
+        spriteRenderer.sortingOrder -= direction * 2;
     }
 }

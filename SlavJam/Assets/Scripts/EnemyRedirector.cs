@@ -32,6 +32,6 @@ public class EnemyRedirector : MonoBehaviour
         yield return new WaitForSecondsRealtime(trackSwitchTime);
 
         enemy.position = new Vector3(enemy.position.x, enemy.position.y + switchDirection, enemy.position.z + switchDirection);
-        enemy.GetComponent<SpriteRenderer>().sortingOrder -= switchDirection;
+        enemy.GetComponent<SpriteRenderer>().sortingOrder -= switchDirection * 2;
     }
 }
