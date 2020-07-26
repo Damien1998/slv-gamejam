@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class BagPickup : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -20,8 +24,10 @@ public class BagPickup : MonoBehaviour
     {
         if (other.CompareTag("Player") && !PlayerController.instance.hasBag)
         {
+            audioSource.Play();
             PlayerController.instance.hasBag = true;
-            Destroy(gameObject);
+            spriteRenderer.color = new Color(1, 1, 1, 0);
+            //Destroy(gameObject);
         }
     }
 }

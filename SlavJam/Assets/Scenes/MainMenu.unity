@@ -3360,7 +3360,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You are a spy. You must follow the man in a red jacket and eavesdrop on
-    his conversation. Don't get too close but also don't stay behind!
+    his conversations. Don't get too close but also don't stay behind!
 --- !u!222 &1237727684
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -9,10 +9,12 @@ public class ObstacleSkateboard : MonoBehaviour
     public bool allowPickupOnSkateboard = true;
     public bool hidePlayer = true;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class ObstacleSkateboard : MonoBehaviour
         {
             if (allowPickupOnSkateboard || !PlayerController.instance.isOnSkateboard)
             {
+                audioSource.Play();
                 if (GameManager.instance.previousObstacle != null)
                 {
                     StopCoroutine(GameManager.instance.previousObstacle.StopPlayer());

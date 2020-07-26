@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidBody;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private AudioSource audioSource;
 
     public float moveSpeed;
     public float runAlertRate;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         moveSpeed = normalSpeed;
     }
 
@@ -120,5 +122,12 @@ public class PlayerController : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, transform.position.y + direction, transform.position.z + direction);
         spriteRenderer.sortingOrder -= direction * 2;
+    }
+
+    public void PlayStep()
+    {
+        int step = Random.Range(0, GameManager.instance.steps.Length);
+        audioSource.clip = GameManager.instance.steps[step];
+        audioSource.Play();
     }
 }

@@ -8,11 +8,12 @@ public class ObstacleBush : MonoBehaviour
     public float slowDownSpeed = 0f;
     public bool allowPickupOnSkateboard = false;
     public bool hidePlayer = true;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,8 @@ public class ObstacleBush : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             if (allowPickupOnSkateboard || !PlayerController.instance.isOnSkateboard)
-            {               
+            {
+                audioSource.Play();
                 StartCoroutine(StopPlayer());
                 if(hidePlayer)
                 {

@@ -24,8 +24,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] tracks;
     public int currentTrackID;
 
+
+    public AudioClip[] gibberish;
+    public AudioClip[] steps;
+
     public Button restart;
     public Button menu;
+
 
     // Start is called before the first frame update
     void Start()

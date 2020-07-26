@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public float fastSpeed, slowSpeed, moveSpeed, normalSpeed;
     private Rigidbody rigidBody;
+    private AudioSource audioSource;
 
     private float distance;
 
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
             instance = this;
         }
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         moveSpeed = normalSpeed;
 
         float aspectRatio = Mathf.Round(Screen.height) / Mathf.Round(Screen.width);
@@ -46,5 +48,12 @@ public class EnemyController : MonoBehaviour
         }
         
         //mainCamera.transform.position = new Vector3(transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+    }
+
+    public void PlayStep()
+    {
+        int step = Random.Range(0, GameManager.instance.steps.Length);
+        audioSource.clip = GameManager.instance.steps[step];
+        audioSource.Play();
     }
 }
