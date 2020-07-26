@@ -7,11 +7,12 @@ public class ObstacleBird : MonoBehaviour
     private bool playerInRange, activated;
     public float alertAmount;
     public float duration;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class ObstacleBird : MonoBehaviour
     {
         if(playerInRange && !Input.GetButton("SlowDown") && !activated)
         {
+            audioSource.Play();
             StartCoroutine(StopPlayer());
             GameManager.instance.alertMeter += alertAmount;
             activated = true;

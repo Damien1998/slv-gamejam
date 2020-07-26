@@ -761,14 +761,14 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'W/S - go up/down
 
-    A/D - slow down/speed up
+    A - slow down
 
-    [hold] E - use (for
-    example hide in a crowd)
+    [hold] E - use (for example hide
+    in a crowd)
 
 
-    Some objects will push you forward (like skateboards),
-    while others - quite the opposite (like bushes). So be aware of your surroundings!'
+    Some objects will push you forward (like skateboards), while
+    others - quite the opposite (like bushes). So be aware of your surroundings!'
 --- !u!222 &244063962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3360,7 +3360,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You are a spy. You must follow the man in a red jacket and eavesdrop on
-    his conversation. Don't get too close but also don't stay behind!
+    his conversations. Don't get too close but also don't stay behind!
 --- !u!222 &1237727684
 CanvasRenderer:
   m_ObjectHideFlags: 0

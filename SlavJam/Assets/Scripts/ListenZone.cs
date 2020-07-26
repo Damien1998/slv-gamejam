@@ -8,6 +8,11 @@ public class ListenZone : MonoBehaviour
     public float scoreDecay;
     private bool playerInRange;
 
+    public AudioSource staticSource;
+    public AudioSource gibberishSource;
+    private bool waitingForGibberish;
+    public float delayMin, delayMax;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,15 @@ public class ListenZone : MonoBehaviour
     {
         if(playerInRange)
         {
+            if(!staticSource.isPlaying)
+            {
+                staticSource.Play();
+            }
+            if(!waitingForGibberish && !gibberishSource.isPlaying)
+            {
+                StartCoroutine(WaitRandom());
+            }
+
             GameManager.instance.tempScore += scorePerSecond * Time.deltaTime * GameManager.instance.speedModifier;
             if (GameManager.instance.dangerMeter > 0)
             {
@@ -31,12 +45,33 @@ public class ListenZone : MonoBehaviour
         }
         else
         {
-            if(GameManager.instance.tempScore > 0)
+            if (staticSource.isPlaying)
+            {
+                staticSource.Stop();
+                StopCoroutine(WaitRandom());
+                gibberishSource.Stop();
+            }
+
+            if (GameManager.instance.tempScore > 0)
             {
                 GameManager.instance.tempScore -= scoreDecay * Time.deltaTime * GameManager.instance.speedModifier;
             }
             GameManager.instance.dangerMeter += Time.deltaTime;
         }
+    }
+
+    IEnumerator WaitRandom()
+    {
+        waitingForGibberish = true;
+        float time = Random.Range(delayMin, delayMax);
+
+        yield return new WaitForSecondsRealtime(time);
+
+        waitingForGibberish = false;
+
+        int gbID = Random.Range(0, GameManager.instance.gibberish.Length);
+        gibberishSource.clip = GameManager.instance.gibberish[gbID];
+        gibberishSource.Play();
     }
 
     private void OnTriggerEnter(Collider other)
