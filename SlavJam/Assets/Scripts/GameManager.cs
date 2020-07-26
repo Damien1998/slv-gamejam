@@ -24,8 +24,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] tracks;
     public int currentTrackID;
 
+
     public AudioClip[] gibberish;
     public AudioClip[] steps;
+
+    public Button restart;
+    public Button menu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +43,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        restart.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
+
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -91,6 +101,8 @@ public class GameManager : MonoBehaviour
             {
                 gameOver.SetActive(true);
                 Time.timeScale = 0;
+                restart.gameObject.SetActive(true);
+                menu.gameObject.SetActive(true);
             }         
         }
 
@@ -98,6 +110,8 @@ public class GameManager : MonoBehaviour
         {
             gameOver.SetActive(true);
             Time.timeScale = 0;
+            restart.gameObject.SetActive(true);
+            menu.gameObject.SetActive(true);
         }
 
         speedModifier += Time.deltaTime * speedUpRate;
