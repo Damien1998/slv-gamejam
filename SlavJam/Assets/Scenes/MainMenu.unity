@@ -761,14 +761,14 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'W/S - go up/down
 
-    A/D - slow down/speed up
+    A - slow down
 
-    [hold] E - use (for
-    example hide in a crowd)
+    [hold] E - use (for example hide
+    in a crowd)
 
 
-    Some objects will push you forward (like skateboards),
-    while others - quite the opposite (like bushes). So be aware of your surroundings!'
+    Some objects will push you forward (like skateboards), while
+    others - quite the opposite (like bushes). So be aware of your surroundings!'
 --- !u!222 &244063962
 CanvasRenderer:
   m_ObjectHideFlags: 0

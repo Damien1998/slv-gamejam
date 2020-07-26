@@ -22,6 +22,18 @@ public class Menu : MonoBehaviour
         Application.LoadLevel(1);
     }
 
+    public void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+        //Time.timeScale = 1;
+    }
+
+    public void LoadMenu()
+    {
+        //Time.timeScale = 1;
+        Application.LoadLevel(0);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
