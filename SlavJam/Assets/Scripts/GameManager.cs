@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int currentTrackID;
 
     public AudioClip[] gibberish;
+    public AudioClip[] steps;
 
     // Start is called before the first frame update
     void Start()
